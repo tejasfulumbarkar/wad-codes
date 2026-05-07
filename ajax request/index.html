@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+
+
+    <link  href="styles.css"  rel="stylesheet" >
+
+</head>
+<body>
+
+
+    <form id="form_id">
+        
+
+        <input type="text" id="name_input" name="name_input" placeholder="Add your Name"> 
+        <input type="text" id="email_input" name="email_input" placeholder="Add your Email">
+        <button type="submit">Submit</button>
+        
+
+    </form>
+
+
+    <script>
+
+let users = JSON.parse(localStorage.getItem("users")) || [];
+
+ document.getElementById("form_id").addEventListener("submit" , function(e){
+
+  e.preventDefault();
+
+
+  let name = document.getElementById("name_input").value;
+  let email = document.getElementById("email_input").value;
+
+
+    let user = {
+
+    name : name,
+    email: email
+
+  };
+
+
+
+    users.push(user);
+
+  localStorage.setItem("users", JSON.stringify(users) );
+
+      let xhr = new XMLHttpRequest();
+      xhr.open("POST", "https://jsonplaceholder.typicode.com/posts");
+      xhr.setRequestHeader("Content-Type", "application/json");
+
+      xhr.onload = function() {
+        console.log("Data sent successfully:", xhr.responseText);
+        window.location.href = "users.html";
+      };
+
+      xhr.onerror = function() {
+        console.error("Error sending data");
+        window.location.href = "users.html";
+      };
+
+      xhr.send(JSON.stringify(user));
+
+
+
+ })
+
+
+    </script>
+
+
+   
+    
+</body>
+</html>
