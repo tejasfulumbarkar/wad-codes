@@ -1,0 +1,35 @@
+Main Commands for This Practical
+1. Update Packages
+sudo apt update
+2. Install net-tools
+sudo apt install net-tools -y
+
+Used for:
+
+ifconfig
+3. Check IP Address
+ifconfig
+
+Look for:
+
+inet
+
+under:
+
+enp0s3
+4. Create File
+echo "Hello from VM1" > transfer.txt
+5. View File Content
+cat transfer.txt
+6. Transfer File Using SCP
+scp transfer.txt vagrant@VM2_IP:/home/vagrant
+
+Example:
+
+scp transfer.txt vagrant@10.0.2.5:/home/vagrant
+7. Go to Home Directory
+cd /home/vagrant
+8. List Files
+ls
+9. Check Transferred File
+cat transfer.txt
