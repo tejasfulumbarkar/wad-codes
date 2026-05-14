@@ -1,0 +1,35 @@
+// docker practical 
+
+
+start docker desktop
+
+
+in cmd check docker --version
+
+
+create folder in that folder write Dockerfile with no extension
+and your program ex app.py 
+
+in app.py write simple print("something")
+
+in Dockerfile write
+
+FROM python:3.11
+
+WORKDIR /app
+
+copy . .
+
+CMD ["python","app.py"] ( remember to add a space after cmd )
+
+
+once done open the folder in termial
+
+
+in terminal type 
+
+
+docker build -t imagename . ( remember . is imp ))
+
+
+done 
